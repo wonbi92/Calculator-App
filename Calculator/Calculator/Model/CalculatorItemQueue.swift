@@ -21,8 +21,9 @@ struct CalculatorItemQueue {
         data.append(element)
     }
     
+    @discardableResult
     mutating func dequeue() -> CalculateItem? {
-        guard let element = data[head] else { return nil }
+        guard head < data.count, let element = data[head] else { return nil }
         data[head] = nil
         head += 1
         
