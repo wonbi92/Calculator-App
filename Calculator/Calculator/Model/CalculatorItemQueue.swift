@@ -6,26 +6,31 @@
 import Foundation
 
 struct CalculatorItemQueue {
-    var input: [CalculateItem] = []
-    var output: [CalculateItem] = []
+    private var data: [CalculateItem?] = []
+    private var head: Int = 0
     
     var isEmpty: Bool {
-        input.isEmpty && output.isEmpty
+        data.isEmpty
     }
     
     var count: Int {
-        input.count + output.count
+        data.count - head
     }
     
     mutating func enqueue(_ element: CalculateItem) {
-        input.append(element)
+        data.append(element)
     }
     
     mutating func dequeue() -> CalculateItem? {
-        if output.isEmpty {
-            output = input.reversed()
-            input.removeAll()
+        guard let element = data[head] else { return nil }
+        data[head] = nil
+        head += 1
+        
+        if head >= 10 {
+            data.removeFirst(head)
+            head = 0
         }
-        return output.popLast()
+        
+        return element
     }
 }

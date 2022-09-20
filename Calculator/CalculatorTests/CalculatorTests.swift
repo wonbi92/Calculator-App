@@ -20,9 +20,6 @@ final class CalculatorTests: XCTestCase {
     }
     
     func test_Queue가빈값일때_true를반환하는지() {
-        let input: [CalculateItem] = []
-        
-        sut.input = input
         let result = sut.isEmpty
         
         XCTAssertTrue(result)
@@ -30,8 +27,10 @@ final class CalculatorTests: XCTestCase {
     
     func test_Queue의남은데이터갯수를세는메서드가_정상작동하는지() {
         let input: [CalculateItem] = .init(repeating: Double.random(in: 1...100), count: Int.random(in: 1...100))
+        for data in input {
+            sut.enqueue(data)
+        }
         
-        sut.input = input
         let result = sut.count
         let inputCount = input.count
         
