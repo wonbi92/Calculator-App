@@ -10,7 +10,8 @@ struct CalculatorItemQueue {
     private var head: Int = 0
     
     var isEmpty: Bool {
-        data.isEmpty
+        if count == 0 { return true }
+        return false
     }
     
     var count: Int {

@@ -65,17 +65,29 @@ final class CalculatorTests: XCTestCase {
     
     func test_dequeue를호출한후count에접근할때_정상적으로data의갯수를반환하는지() {
         let input: [CalculateItem] = .init(repeating: Double.random(in: 1...100), count: Int.random(in: 1...50))
-        print(input.count)
         for data in input {
             sut.enqueue(data)
         }
         
         let randomNumber = Int.random(in: 1...input.count)
-        print(randomNumber)
         for _ in 1...randomNumber {
             sut.dequeue()
         }
         
         XCTAssertEqual(input.count - randomNumber, sut.count)
+    }
+    
+    func test_enqueue와dequeue를동일한횟수로호출하면_data가비어있는지() {
+        let randomNumber = Int.random(in: 1...50)
+        
+        for _ in 1...randomNumber {
+            sut.enqueue(Int.random(in: 1...50))
+        }
+        
+        for _ in 1...randomNumber {
+            sut.dequeue()
+        }
+        
+        XCTAssertTrue(sut.isEmpty)
     }
 }
