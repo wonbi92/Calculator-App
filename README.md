@@ -30,7 +30,7 @@
 - [일일 스크럼 보러가기](https://github.com/wonbi92/ios-calculator-app/wiki/%F0%9F%93%9D-%EC%9D%BC%EC%9D%BC-%EC%8A%A4%ED%81%AC%EB%9F%BC)
 
 
-## ⚒️ 실행 화면
+## 🛠 실행 화면
  |**기본 연산**|**연산 후 =버튼 비활성화**|**0일때 연산자 변경**|
  |:---:|:---:|:---:|
  |![](https://i.imgur.com/fXs4Eqj.gif)|![](https://i.imgur.com/faxfI4T.gif)|![](https://i.imgur.com/HBbmhCU.gif)|
